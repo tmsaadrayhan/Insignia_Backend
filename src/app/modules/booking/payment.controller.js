@@ -47,7 +47,7 @@ class paymentController {
           mode: "0011",
           payerReference: " ",
           callbackURL:
-            "http://localhost:8080/api/v1/booking/bkash/payment/callback",
+            "https://insignia-backend-nine.vercel.app/api/v1/booking/bkash/payment/callback",
           currency: "BDT",
           intent: "sale",
           merchantInvoiceNumber: "Inv" + uuidv4().substring(0, 5),
