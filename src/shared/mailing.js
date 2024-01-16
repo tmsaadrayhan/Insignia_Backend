@@ -1,5 +1,7 @@
 import nodemailer from "nodemailer";
 import config from "../config/index.js";
+import ApiError from "../errors/ApiError.js";
+import httpStatus from "http-status";
 
 const sendVerificationEmail = async (email, verificationToken) => {
   const transporter = nodemailer.createTransport({
