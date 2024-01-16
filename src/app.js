@@ -15,6 +15,7 @@ const corsOptions = {
     "https://insignia-dev.pingdashtech.org",
     "https://insignia-admin.pingdashtech.org",
     "https://insignia-frontend-steel.vercel.app",
+    "https://insignia-backend-nine.vercel.app",
   ],
   optionsSuccessStatus: 200,
   credentials: true,
@@ -46,6 +47,10 @@ app.get("/", async (req, res) => {
   res.header(
     "Access-Control-Allow-Origin",
     "https://insignia-frontend-steel.vercel.app"
+  );
+  res.header(
+    "Access-Control-Allow-Origin",
+    "https://insignia-backend-nine.vercel.app"
   );
   res.send("Welcome to Insignia Tours & Travels production!!");
 });
