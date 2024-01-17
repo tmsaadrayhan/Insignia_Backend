@@ -11,8 +11,8 @@ import bcrypt from "bcrypt";
 import {
   sendAdminForgotPasswordLink,
   sendForgotPasswordLink,
+  sendVerificationEmail
 } from "../../../shared/nodeMailer.js";
-import sendVerificationEmail from "../../../shared/mailing.js";
 
 const oAuth2Client = new OAuth2Client(
   config.google_client_id,
@@ -182,7 +182,7 @@ const register = async (payload) => {
   );
   createdUser.emailVerification.token = verificationToken;
   await createdUser.save();
-  sendVerificationEmail(createdUser.email, verificationToken);
+  await sendVerificationEmail(createdUser.email, verificationToken);
   // createdUser.password = undefined;
   // return {
   //   message: "Registration successful! A verification email has been sent.",
