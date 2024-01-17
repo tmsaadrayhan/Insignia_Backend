@@ -3,24 +3,19 @@ import config from "../config/index.js";
 import ApiError from "../errors/ApiError.js";
 import httpStatus from "http-status";
 
+const transporter = nodemailer.createTransport({
+  service: "gmail",
+  tls: {
+      rejectUnauthorized: false,
+  },
+  auth: {
+    user: config.support_mail_address,
+    pass: config.nodemailer_pass,
+  },
+});
 const sendVerificationEmail = async (email, verificationToken) => {
-  const transporter = nodemailer.createTransport({
-    service: "gmail",
-    tls: {
-        rejectUnauthorized: false,
-    },
-    auth: {
-      user: config.support_mail_address,
-      pass: config.nodemailer_pass,
-    },
-  });
 
   const mailOptions = {
-    // from: "support@insignia.org",
-    // to: email,
-    // subject: "Email Verification",
-    // text: `Click the following link to verify your email:="${config.frontend_base_url}/auth/verify-email?token=${verificationToken}`,
-    // html: `<p>Click the following link to verify your email: <a href="="${config.frontend_base_url}/auth/verify-email?token=${verificationToken}">Verify Email</a></p>`,
     from: "support@insignia.org",
     to: email,
     subject: "Insignia Email Verification",
