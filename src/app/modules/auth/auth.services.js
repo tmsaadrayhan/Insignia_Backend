@@ -20,6 +20,8 @@ const oAuth2Client = new OAuth2Client(
   "postmessage"
 );
 
+
+
 const googleLogin = async (code) => {
   // Finding jwt token here from google
   const {
@@ -126,6 +128,8 @@ const googleLogin = async (code) => {
     };
   }
 };
+
+
 
 const register = async (payload) => {
   const isEmailExist = await User.findOne({ email: payload.email });

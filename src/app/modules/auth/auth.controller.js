@@ -6,27 +6,6 @@ import config from "../../../config/index.js";
 import User from "../user/user.model.js";
 import { jwtHelpers } from "../../../helper/jwtHelpers.js";
 
-// const register = catchAsync(async (req, res) => {
-//   const { ...registerData } = req.body;
-//   const result = await AuthService.register(registerData);
-//   const { refreshToken, ...others } = result;
-
-//   // set refresh token into cookie
-//   res.cookie(config.refresh_token_name, refreshToken, {
-//     expires: new Date(Date.now() + 90 * 24 * 60 * 60 * 1000),
-//     sameSite: "none",
-//     secure: true,
-//     httpOnly: true,
-//   });
-
-//   return sendResponse(res, {
-//     statusCode: httpStatus.OK,
-//     success: true,
-//     message: "Registration successful!",
-//     meta: null,
-//     data: others,
-//   });
-// });
 
 // const register = catchAsync(async (req, res) => {
 //   const { ...registerData } = req.body;
@@ -106,6 +85,7 @@ const googleLogin = catchAsync(async (req, res) => {
     data: result,
   });
 });
+
 
 const logout = catchAsync(async (req, res) => {
   // set refresh token into cookie
