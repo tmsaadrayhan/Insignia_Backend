@@ -82,7 +82,7 @@ class paymentController {
     }
    
     if (status === "cancel" || status === "failure") {
-      return res.redirect(`${this.baseUrl}/payment-failed?message=${status}`);
+      return res.redirect(`${this.baseUrl}/booking-failed?message=${status}`);
     }
     if (status === "success") {
       try {
@@ -123,7 +123,7 @@ class paymentController {
 
           await Booking.create(bookingData);
 
-          return res.redirect(`${this.baseUrl}/payment-success`);
+          return res.redirect(`${this.baseUrl}/booking-success`);
         } else {
           return res.redirect(
             `${this.baseUrl}/payment-failed?message=${data.statusMessage}`
@@ -132,7 +132,7 @@ class paymentController {
       } catch (error) {
         console.error("Error in call_back:", error);
         console.log(error);
-        return res.redirect(`${this.baseUrl}/payment-failed?message=${error.message}`);
+        return res.redirect(`${this.baseUrl}/booking-failed?message=${error.message}`);
       }
       
     }

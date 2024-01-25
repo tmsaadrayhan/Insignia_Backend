@@ -10,18 +10,22 @@ const BookingSchema = Schema(
       type: String,
       required: [true, "User ID is missing!"],
     },
-    paymentMethod: {
-      type: String,
-      required: [true, "paymentMethod is missing!"],
+    // paymentMethod: {
+    //   type: String,
+    //   required: [true, "paymentMethod is missing!"],
+    // },
+    isPaid: {
+      type: Boolean,
+      default: false
     },
-    trxID: {
-      type: String,
-      required: [true, "Transaction ID is missing!"],
-    },
-    paymentID: {
-      type: String,
-      required: [true, "Payment ID is missing!"],
-    },
+    // trxID: {
+    //   type: String,
+    //   required: [true, "Transaction ID is missing!"],
+    // },
+    // paymentID: {
+    //   type: String,
+    //   required: [true, "Payment ID is missing!"],
+    // },
     firstName: {
       type: String,
       trim: true,
