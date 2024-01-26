@@ -64,4 +64,10 @@ router.put(
   BookingController.updateBlockStatus
 );
 
+router.put(
+  "/update-isPaid-status/:id",
+  auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
+  BookingController.updateIsPaidStatus
+);
+
 export const BookingRoutes = router;

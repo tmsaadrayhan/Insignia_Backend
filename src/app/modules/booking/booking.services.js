@@ -3,9 +3,11 @@ import ApiError from "../../../errors/ApiError.js";
 import Booking from "./booking.model.js";
 import { bookingSearchableFields } from "./booking.constants.js";
 import { PaginationHelpers } from "../../../helper/paginationHelper.js";
+import { generateBookingId } from "./booking.utils.js";
 
 const addBooking = async (bookingData) => {
   try {
+    bookingData.bookingId = await generateBookingId();
     const booking = await Booking.create(bookingData);
     return booking;
   } catch (error) {
@@ -201,6 +203,25 @@ const updateBlockStatus = async (id) => {
   return result;
 };
 
+const updateIsPaidStatus = async (bookingId, isPaid) => {
+  try {
+    const booking = await Booking.findByIdAndUpdate(
+      bookingId,
+      { isPaid },
+      { new: true }
+    );
+
+    if (!booking) {
+      throw new ApiError(httpStatus.NOT_FOUND, "Booking not found");
+    }
+
+    return booking;
+  } catch (error) {
+    const statusCode = error.statusCode || httpStatus.INTERNAL_SERVER_ERROR;
+    throw new ApiError(statusCode, "Error updating Payment status");
+  }
+};
+
 export const BookingService = {
   addBooking,
   getOneBooking,
@@ -209,4 +230,5 @@ export const BookingService = {
   getAllBookings,
   getAllBookingsForUser,
   updateBlockStatus,
+  updateIsPaidStatus,
 };

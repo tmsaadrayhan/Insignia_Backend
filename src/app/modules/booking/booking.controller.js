@@ -114,6 +114,21 @@ const addBooking = catchAsync(async (req, res) => {
     });
   });
 
+  const updateIsPaidStatus = catchAsync(async (req, res) => {
+    const { id } = req.params;
+    const { isPaid } = req.body;
+  
+    const result = await BookingService.updateIsPaidStatus(id, isPaid);
+  
+    return sendResponse(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: "Payment status updated successfully",
+      meta: null,
+      data: result,
+    });
+  });
+
   export const BookingController = {
     addBooking,
     getOneBooking,
@@ -122,6 +137,7 @@ const addBooking = catchAsync(async (req, res) => {
     getAllBookings,
     getAllBookingsForUser,
     updateBlockStatus,
+    updateIsPaidStatus,
   };
   
 

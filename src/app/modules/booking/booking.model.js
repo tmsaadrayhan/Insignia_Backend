@@ -2,6 +2,11 @@ import { Schema, model } from "mongoose";
 
 const BookingSchema = Schema(
   {
+    bookingId: {
+      type: String,
+      unique: true,
+      required: [true, "User ID is required"],
+    },
     blockStatus: {
       type: Boolean,
       default: false
