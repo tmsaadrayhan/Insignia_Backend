@@ -13,7 +13,7 @@ export const findLastBookingId = async () => {
   
     // increment by 1
     let incrementedId = (parseInt(currentId) + 1).toString().padStart(4, "0");
-    incrementedId = `B-${new Date().getFullYear()}${incrementedId}`;
+    incrementedId = `${new Date().getFullYear()}${incrementedId}`;
   
     return incrementedId;
   };
