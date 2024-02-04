@@ -71,7 +71,7 @@ const createAdmin = async (payload) => {
     throw new ApiError(httpStatus.BAD_REQUEST, "Email is already in use");
   }
 
-  payload.password = config.default_admin_pass;
+  // payload.password = config.default_admin_pass;
   payload.userId = await generateAdminId();
 
   const result = await Admin.create(payload);

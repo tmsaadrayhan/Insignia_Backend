@@ -47,6 +47,7 @@ const AdminSchema = Schema(
     },
     password: {
       type: String,
+      required: [true, "Password is required"],
       match: [
         /^(?=.*[A-Za-z0-9])(?=.*[^A-Za-z0-9]).{8,}$/,
         "Invalid password format",
