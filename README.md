@@ -49,3 +49,4 @@
 ### Technologies used -
 
 #### "React JS", "Tailwind css", "ant design", "JavaScript", "React Router", "react-redux","react-helmet","react-icons", "axios","react-autosuggest","react-hook-form","react-quill", "react-hot-toast","rc-pagination", "Node JS","express", "mongoose", "jsonwebtoken", "bcrypt", "cloudinary", "express-rate-limit", "google-auth", "multer", "nodemailer", "zod"
+# Insignia_Backend

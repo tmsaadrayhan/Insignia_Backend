@@ -7,25 +7,25 @@ import routes from "./app/routes/index.js";
 // Create an instance of the Express application
 const app = express();
 
-const corsOptions = {
-  origin: [
-    "http://localhost:3000",
-    "http://localhost:5000",
-    "https://pingdashtech.org",
-    "https://insignia-dev.pingdashtech.org",
-    "https://insignia-admin.pingdashtech.org",
-    "https://insignia-frontend-steel.vercel.app",
-    "https://insignia-backend-nine.vercel.app",
-    "https://insignia-admin.vercel.app",
-  ],
-  optionsSuccessStatus: 200,
-  credentials: true,
-  methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
-  allowedHeaders: ["Content-Type", "authorization"],
-};
+// const corsOptions = {
+//   origin: [
+//     "http://localhost:3000",
+//     "http://localhost:5000",
+//     "https://pingdashtech.org",
+//     "https://insignia-dev.pingdashtech.org",
+//     "https://insignia-admin.pingdashtech.org",
+//     "https://insignia-frontend-steel.vercel.app",
+//     "https://insignia-backend-nine.vercel.app",
+//     "https://insignia-admin.vercel.app",
+//   ],
+//   optionsSuccessStatus: 200,
+//   credentials: true,
+//   methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+//   allowedHeaders: ["Content-Type", "authorization"],
+// };
 
 // Application Middleware
-app.use(cors(corsOptions)); // Enable Cross-Origin Resource Sharing
+app.use(cors()); // Enable Cross-Origin Resource Sharing
 app.use(cookieParser());
 app.use(express.json()); // Parse JSON request bodies
 app.use(express.urlencoded({ extended: true })); // Parse URL-encoded request bodies
