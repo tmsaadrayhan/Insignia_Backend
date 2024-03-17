@@ -9,14 +9,16 @@ const app = express();
 
 const corsOptions = {
   origin: [
-    "http://localhost:3000",
-    "http://localhost:5000",
-    "https://pingdashtech.org",
-    "https://insignia-dev.pingdashtech.org",
-    "https://insignia-admin.pingdashtech.org",
-    "https://insignia-frontend-steel.vercel.app",
-    "https://insignia-backend-nine.vercel.app",
-    "https://insignia-admin.vercel.app",
+     "http://localhost:3000",
+     "http://localhost:5000",
+    // "https://pingdashtech.org",
+    // "https://insignia-dev.pingdashtech.org",
+    // "https://insignia-admin.pingdashtech.org",
+    // "https://insignia-frontend-steel.vercel.app",
+    // "https://insignia-backend-nine.vercel.app",
+    // "https://insignia-admin.vercel.app",
+     "https://insignia-admin.vercel.app",
+     "https://insignia-admin.vercel.app",
   ],
   optionsSuccessStatus: 200,
   credentials: true,
@@ -25,7 +27,7 @@ const corsOptions = {
 };
 
 // Application Middleware
-app.use(cors(cors)); // Enable Cross-Origin Resource Sharing
+app.use(cors(corsOptions)); // Enable Cross-Origin Resource Sharing
 app.use(cookieParser());
 app.use(express.json()); // Parse JSON request bodies
 app.use(express.urlencoded({ extended: true })); // Parse URL-encoded request bodies
